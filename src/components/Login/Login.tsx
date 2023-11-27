@@ -1,13 +1,17 @@
 import React from "react";
-import { View, Text, StyleSheet, Image, Button, TextInput, KeyboardAvoidingView } from "react-native";
+import {
+  View,
+  Text,
+  StyleSheet,
+  Image,
+  KeyboardAvoidingView,
+} from "react-native";
+import { TextInput, Button } from "react-native-paper";
 import { LinearGradient } from "expo-linear-gradient";
 
 const Login = () => {
   return (
-
-   
-    
-    <View >
+    <View>
       <LinearGradient
         colors={[
           "rgba(167,79,255,1) 100%",
@@ -25,21 +29,37 @@ const Login = () => {
         <View>
           <TextInput
             style={styles.placeholder}
-            placeholder="Usuario"
+            value="Usuario"
             placeholderTextColor="white"
+            textContentType="password"
           />
           <TextInput
             style={styles.placeholder}
-            placeholder="Contrasena"
+            value="Contrasena"
             placeholderTextColor="white"
-            textContentType='password'
+            textContentType="password"
+            secureTextEntry
+            right={<TextInput.Icon icon="eye" />}
           />
           <View style={styles.buttonContainer}>
-          <Button title='olvide la contrasena'/>
+            <Button
+              mode="text"
+              textColor="white"
+              onPress={() => console.log("Pressed")}
+            >
+              Olvide mi contrasena
+            </Button>
           </View>
         </View>
-        <View style={{marginTop:100}}>
-            <Button title="Ingresar" />
+        <View style={{ marginTop: 10 }}>
+          <Button
+            textColor="black"
+            mode="contained"
+            style={{ width: 250, height: 40, backgroundColor: "white" }}
+            onPress={() => console.log("Pressed")}
+          >
+            Ingresar
+          </Button>
         </View>
       </LinearGradient>
     </View>
@@ -72,10 +92,14 @@ const styles = StyleSheet.create({
     borderRightWidth: 0,
     borderTopWidth: 0,
     borderLeftWidth: 0,
+    backgroundColor: "rgba(2,0,36,1) ",
+    textColor: "white",
+    margin: 2,
   },
-  buttonContainer:{
-    padding: 16,
-    alignItems:'flex-end', }
+  buttonContainer: {
+    padding: 1,
+    alignItems: "flex-end",
+  },
 });
 
 export default Login;

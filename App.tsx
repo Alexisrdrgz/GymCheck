@@ -1,6 +1,8 @@
 import { StatusBar } from 'expo-status-bar';
 import { KeyboardAvoidingView, Platform, SafeAreaView, StyleSheet, Text, View } from 'react-native';
 import Login from './src/components/Login';
+import CrearCuenta from './src/components/CrearCuenta';
+import ConfirmacionCuenta from './src/components/ConfirmacionCuenta';
 
 export default function App() {
   return (
@@ -12,7 +14,7 @@ export default function App() {
     <View style={{
           flex: 1,
           paddingTop: Platform.OS === "android" && 30,}} >
-      <Login />
+      <ConfirmacionCuenta />
       <StatusBar style="auto" />
     </View>
     </SafeAreaView>
