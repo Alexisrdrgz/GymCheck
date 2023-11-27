@@ -4,7 +4,7 @@ import { Avatar, TextInput, Button } from "react-native-paper";
 
 const ConfirmacionCuenta = () => {
   return (
-    <View>
+    <View style={styles.container}>
       <View style={styles.avatarContainer}>
         <Text
           style={{
@@ -44,7 +44,6 @@ const ConfirmacionCuenta = () => {
         buttonColor="#8801FF"
         textColor="white"
       >
-        
         Crear Cuenta
       </Button>
     </View>
@@ -62,11 +61,16 @@ const styles = StyleSheet.create({
     width: 300,
     marginStart: 50,
     marginTop: 10,
+    borderRadius: 8,
   },
   formButtons: {
     margin: 4,
     marginStart: 10,
     marginEnd: 10,
+  },
+  container: {
+    flex: 1,
+    justifyContent: "space-evenly",
   },
 });
 
