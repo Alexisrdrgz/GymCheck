@@ -1,6 +1,8 @@
 import { StyleSheet, TouchableOpacity, View, Text } from "react-native";
 import React from "react";
 import { Avatar } from "react-native-paper";
+import { useNavigation } from "@react-navigation/native";
+
 
 const opciones = [
   {
@@ -8,28 +10,34 @@ const opciones = [
     title: "Perfil",
     image: require("../../../assets/Perfil.png"),
     screen: "Perfil",
+    component:'Perfil'
   },
   {
     id: 2,
     title: "Perfil",
     image: require("../../../assets/Membresia.png"),
     screen: "Membresia",
+    component:'Membresia'
   },
   {
     id: 3,
     title: "Perfil",
     image: require("../../../assets/Puntuaje.png"),
     screen: "Puntuaje",
+    component:'Puntuaje'
   },
   {
     id: 4,
     title: "Perfil",
     image: require("../../../assets/Ajustes.png"),
     screen: "Ajustes",
+    component:'Ajustes'
   },
 ];
+const navigation = useNavigation();
 
 const HomeScreen = () => {
+  
   return (
     <View style={styles.container}>
       <View
@@ -48,9 +56,10 @@ const HomeScreen = () => {
 
       <View style={styles.gridContainer}>
         {opciones.map((opcion) => (
-          <TouchableOpacity key={opcion.id} style={styles.circleButton}>
+          <TouchableOpacity key={opcion.id} style={styles.circleButton} onPress={()=>navigation.navigate(opcion.component)}>
             <Avatar.Image size={100} source={opcion.image} />
             <Text style={styles.textStyle}>{opcion.screen}</Text>
+           
           </TouchableOpacity>
         ))}
       </View>

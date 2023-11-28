@@ -5,6 +5,10 @@ import Login from "../components/Login";
 import CrearCuenta from "../components/CrearCuenta";
 import ConfirmacionCuenta from "../components/ConfirmacionCuenta";
 import HomeScreen from "../components/HomeScreen/HomeScreen";
+import Perfil from "../components/Perfil/Perfil";
+import Ajustes from "../components/Ajustes/Ajustes";
+import Puntuaje from "../components/Puntuaje/Puntuaje";
+import Membresia from "../components/Membresia/Membresia";
 const MainStack = () => {
   const Stack = createNativeStackNavigator();
   return (
@@ -13,6 +17,15 @@ const MainStack = () => {
       <Stack.Screen name="CrearCuenta" component={CrearCuenta} />
       <Stack.Screen name="ConfirmacionCuenta" component={ConfirmacionCuenta} />
       <Stack.Screen name="HomeScreen" component={HomeScreen} />
+      <Stack.Screen name="Perfil" component={Perfil} />
+      <Stack.Screen name="Ajustes" component={Ajustes} />
+      <Stack.Screen name="Puntuaje" component={Puntuaje} />
+      <Stack.Screen name="Membresia" component={Membresia} />
+
+
+
+
+
     </Stack.Navigator>
   );
 };
