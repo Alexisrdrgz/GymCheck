@@ -1,8 +1,10 @@
 import React from "react";
 import { View, Text, StyleSheet } from "react-native";
 import { Avatar, TextInput, Button } from "react-native-paper";
+import { useNavigation } from "@react-navigation/native";
 
 const ConfirmacionCuenta = () => {
+  const navigation = useNavigation();
   return (
     <View style={styles.container}>
       <View style={styles.avatarContainer}>
@@ -43,6 +45,7 @@ const ConfirmacionCuenta = () => {
         style={styles.buttonContainer}
         buttonColor="#8801FF"
         textColor="white"
+        onPress={() => navigation.navigate("HomeScreen")}
       >
         Crear Cuenta
       </Button>

@@ -11,6 +11,8 @@ import Login from "./src/components/Login";
 import CrearCuenta from "./src/components/CrearCuenta";
 import ConfirmacionCuenta from "./src/components/ConfirmacionCuenta";
 import HomeScreen from "./src/components/HomeScreen/HomeScreen";
+import { NavigationContainer } from "@react-navigation/native";
+import MainStack from "./src/Routes/MainStack";
 
 export default function App() {
   return (
@@ -22,7 +24,9 @@ export default function App() {
             paddingTop: Platform.OS === "android" && 30,
           }}
         >
-          <HomeScreen />
+          <NavigationContainer>
+            <MainStack />
+          </NavigationContainer>
           <StatusBar style="auto" />
         </View>
       </SafeAreaView>

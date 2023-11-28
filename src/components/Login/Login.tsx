@@ -8,8 +8,10 @@ import {
 } from "react-native";
 import { TextInput, Button } from "react-native-paper";
 import { LinearGradient } from "expo-linear-gradient";
+import { useNavigation } from "@react-navigation/native";
 
 const Login = () => {
+  const navigation = useNavigation();
   return (
     <View>
       <LinearGradient
@@ -55,10 +57,23 @@ const Login = () => {
           <Button
             textColor="black"
             mode="contained"
-            style={{ width: 250, height: 40, backgroundColor: "white" }}
+            style={{
+              width: 250,
+              height: 40,
+              backgroundColor: "white",
+              marginBottom: 16,
+            }}
             onPress={() => console.log("Pressed")}
           >
             Ingresar
+          </Button>
+          <Button
+            textColor="white"
+            mode="contained"
+            style={{ width: 250, height: 40, backgroundColor: "black" }}
+            onPress={() => navigation.navigate("CrearCuenta")}
+          >
+            Registrarse
           </Button>
         </View>
       </LinearGradient>

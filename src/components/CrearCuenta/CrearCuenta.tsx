@@ -1,8 +1,10 @@
 import React from "react";
 import { View, Text, StyleSheet } from "react-native";
 import { Avatar, TextInput, Button } from "react-native-paper";
+import { useNavigation } from "@react-navigation/native";
 
 const CrearCuenta = () => {
+  const navigation = useNavigation();
   return (
     <View>
       <View style={styles.avatarContainer}>
@@ -50,9 +52,9 @@ const CrearCuenta = () => {
         style={styles.buttonContainer}
         buttonColor="#8801FF"
         textColor="white"
+        onPress={() => navigation.navigate("ConfirmacionCuenta")}
       >
-        {" "}
-        Siguiente{" "}
+        Siguiente
       </Button>
     </View>
   );
