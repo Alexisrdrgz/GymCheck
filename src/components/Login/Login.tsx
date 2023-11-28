@@ -11,6 +11,9 @@ import { LinearGradient } from "expo-linear-gradient";
 import { useNavigation } from "@react-navigation/native";
 
 const Login = () => {
+  const [text, SetText] = React.useState('');
+  const [password, Setpassword] = React.useState('');
+
   const navigation = useNavigation();
   return (
     <View>
@@ -31,13 +34,16 @@ const Login = () => {
         <View>
           <TextInput
             style={styles.placeholder}
-            value="Usuario"
+            value={text}
+            onChangeText={SetText}
+            placeholder="Usuario"
             placeholderTextColor="white"
-            textContentType="password"
           />
           <TextInput
             style={styles.placeholder}
-            value="Contrasena"
+            value={password}
+            placeholder="Contrasena"
+            onChangeText={Setpassword}
             placeholderTextColor="white"
             textContentType="password"
             secureTextEntry
@@ -63,7 +69,7 @@ const Login = () => {
               backgroundColor: "white",
               marginBottom: 16,
             }}
-            onPress={() => console.log("Pressed")}
+            onPress={() => navigation.navigate("HomeScreen")}
           >
             Ingresar
           </Button>
@@ -113,6 +119,7 @@ const styles = StyleSheet.create({
   },
   buttonContainer: {
     padding: 1,
+    marginTop:20,
     alignItems: "flex-end",
   },
 });

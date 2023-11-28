@@ -34,9 +34,10 @@ const opciones = [
     component:'Ajustes'
   },
 ];
-const navigation = useNavigation();
 
 const HomeScreen = () => {
+  const navigation = useNavigation();
+
   
   return (
     <View style={styles.container}>
