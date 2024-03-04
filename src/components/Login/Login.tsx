@@ -16,7 +16,7 @@ const Login = () => {
 
   const navigation = useNavigation();
 const verificarUsuario = () => {
-  if (text === "" && password === "") {
+  if (text === "admin" && password === "admin") {
     navigation.navigate("HomeScreen");
   } else {
     alert("Usuario o contrasena incorrectos");
