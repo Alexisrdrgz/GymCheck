@@ -10,9 +10,9 @@ const Perfil = () =>{
             style={{
               fontWeight: "bold",
               fontSize: 18,
-              marginTop: 40,
+              marginTop: 1,
               marginBottom: 20,
-              marginLeft:35
+              marginLeft:47
             }}
           >
             Perfil
@@ -20,12 +20,21 @@ const Perfil = () =>{
           <Avatar.Image
             size={120}
             source={require("../../../assets/avatar.jpg")}
+            style={{ marginLeft: 15 }}
           />
+          <Text>
+            num. de usuario: 00001
+          </Text>
+
         </View>
         <View>
             <Image source={require('../../../assets/qr.png')} style={styles.image}/>
         </View>
+        <View style={styles.design}>
+
         </View>
+        </View>
+        
     )
 }
 export default Perfil;
@@ -35,6 +44,7 @@ const styles = StyleSheet.create({
       flex: 1,
       alignItems: "center",
       padding: 28,
+      flexDirection: "column",
     },
     textStyle: {
       fontWeight: "bold",
@@ -42,11 +52,17 @@ const styles = StyleSheet.create({
     },
     image:{
         marginTop:29,
-        width:300,
-        height:300
+        width:200,
+        height:200,
+        marginLeft: 20
     },
-    avatarContainer:{
+    design:{
+        width: 534,
+        height: 514,
+        backgroundColor: "#F3DFFF",
+        marginTop: 20,
+          borderRadius : Math.min(534, 514) / 2,}
         
-    }
+    
 });
 

@@ -15,6 +15,17 @@ const Login = () => {
   const [password, Setpassword] = React.useState('');
 
   const navigation = useNavigation();
+const verificarUsuario = () => {
+  if (text === "" && password === "") {
+    navigation.navigate("HomeScreen");
+  } else {
+    alert("Usuario o contrasena incorrectos");
+  }
+
+}
+
+
+
   return (
     <View>
       <LinearGradient
@@ -69,7 +80,7 @@ const Login = () => {
               backgroundColor: "white",
               marginBottom: 16,
             }}
-            onPress={() => navigation.navigate("HomeScreen")}
+            onPress={verificarUsuario}
           >
             Ingresar
           </Button>
