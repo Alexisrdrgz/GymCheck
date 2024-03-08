@@ -1,10 +1,44 @@
-import React from "react";
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet, Alert } from "react-native";
 import { Avatar, TextInput, Button } from "react-native-paper";
 import { useNavigation } from "@react-navigation/native";
+import React, { useState } from "react";
+import {
+  auth,
+  createUserWithEmailAndPassword,
+  database,
+} from "../../../firebaseConfig";
+import { doc, setDoc } from "firebase/firestore";
 
 const CrearCuenta = () => {
   const navigation = useNavigation();
+
+  const [email, setEmail] = useState<string>("");
+  const [password, setPassword] = useState<string>("");
+  const [name, setName] = useState<string>("");
+
+  const createuser = () => {
+    createUserWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        setDoc(doc(database, "/Users", userCredential.user.uid), {
+          name: name,
+          id: userCredential.user.uid,
+          email: email,        });
+        alert("User creado");
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        errorCode === "auth/weak-password"
+          ? Alert.alert("Password", "Ingrese minimo 6 caracteres", [
+            { text: "OK", onPress: () => console.log("OK Pressed") },
+          ])
+          : errorCode === "auth/email-already-in-use"
+            ? Alert.alert("User", "El correo ya esta registrado en una cuenta", [
+              { text: "OK", onPress: () => navigation.navigate("Login") },
+            ])
+            : null;
+      });
+  };
+
   return (
     <View>
       <View style={styles.avatarContainer}>
@@ -21,15 +55,15 @@ const CrearCuenta = () => {
       <View>
         <View style={styles.formButtons}>
           <Text style={{ fontWeight: "400", marginBottom: 5 }}>
-            Numero de telefono
+            Nombre Completo
           </Text>
-          <TextInput label="Nombre Completo" />
+          <TextInput label="Nombre Completo" onChangeText={(value) => setName(value)} />
         </View>
         <View style={styles.formButtons}>
           <Text style={{ fontWeight: "400", marginBottom: 5 }}>
-            Numero de socio
+            Correo electronico
           </Text>
-          <TextInput label="Numero de socio" />
+          <TextInput label="Correo electronico" onChangeText={(value) => setEmail(value)} />
         </View>
         <View style={styles.formButtons}>
           <Text style={{ fontWeight: "400", marginBottom: 5 }}>
@@ -42,9 +76,8 @@ const CrearCuenta = () => {
         </View>
         <View style={styles.formButtons}>
           <Text style={{ fontWeight: "400", marginBottom: 5 }}>
-            Numero telefonico
-          </Text>
-          <TextInput label="Numero telefonico" />
+            Contrasena          </Text>
+          <TextInput label="Contrasena" onChangeText={(value) => setPassword(value)} />
         </View>
       </View>
       <Button
@@ -52,7 +85,7 @@ const CrearCuenta = () => {
         style={styles.buttonContainer}
         buttonColor="#8801FF"
         textColor="white"
-        onPress={() => navigation.navigate("ConfirmacionCuenta")}
+        onPress={() => createuser()}
       >
         Siguiente
       </Button>
