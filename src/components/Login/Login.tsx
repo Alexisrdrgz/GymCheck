@@ -9,22 +9,18 @@ import {
 import { TextInput, Button } from "react-native-paper";
 import { LinearGradient } from "expo-linear-gradient";
 import { useNavigation } from "@react-navigation/native";
+import { useAuth } from "../../hooks/useAuth";
+import { RoutesProps } from "../../types/navigation.type";
 
 const Login = () => {
-  const [text, SetText] = React.useState('');
-  const [password, Setpassword] = React.useState('');
+  const [user, SetUser] = React.useState("");
+  const [password, Setpassword] = React.useState("");
+  const { loading, Login, error } = useAuth();
+  const navigation = useNavigation<RoutesProps>();
 
-  const navigation = useNavigation();
-const verificarUsuario = () => {
-  if (text === "" && password === "") {
-    navigation.navigate("HomeScreen");
-  } else {
-    alert("Usuario o contrasena incorrectos");
-  }
-
-}
-
-
+  const verificarUsuario = () => {
+    Login(user, password);
+  };
 
   return (
     <View>
@@ -45,8 +41,8 @@ const verificarUsuario = () => {
         <View>
           <TextInput
             style={styles.placeholder}
-            value={text}
-            onChangeText={SetText}
+            value={user}
+            onChangeText={SetUser}
             placeholder="Usuario"
             placeholderTextColor="white"
           />
@@ -60,6 +56,7 @@ const verificarUsuario = () => {
             secureTextEntry
             right={<TextInput.Icon icon="eye" />}
           />
+          <Text style={{ color: "red" }}>{error}</Text>
           <View style={styles.buttonContainer}>
             <Button
               mode="text"
@@ -80,7 +77,8 @@ const verificarUsuario = () => {
               backgroundColor: "white",
               marginBottom: 16,
             }}
-            onPress={verificarUsuario}
+            disabled={loading}
+            onPress={() => verificarUsuario()}
           >
             Ingresar
           </Button>
@@ -130,7 +128,7 @@ const styles = StyleSheet.create({
   },
   buttonContainer: {
     padding: 1,
-    marginTop:20,
+    marginTop: 20,
     alignItems: "flex-end",
   },
 });

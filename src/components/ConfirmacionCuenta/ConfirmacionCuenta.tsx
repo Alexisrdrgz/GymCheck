@@ -2,9 +2,10 @@ import React from "react";
 import { View, Text, StyleSheet } from "react-native";
 import { Avatar, TextInput, Button } from "react-native-paper";
 import { useNavigation } from "@react-navigation/native";
+import { RoutesProps } from "../../types/navigation.type";
 
 const ConfirmacionCuenta = () => {
-  const navigation = useNavigation();
+  const navigation = useNavigation<RoutesProps>();
   return (
     <View style={styles.container}>
       <View style={styles.avatarContainer}>

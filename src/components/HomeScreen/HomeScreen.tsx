@@ -1,51 +1,62 @@
-import { StyleSheet, TouchableOpacity, View, Text } from "react-native";
+import {
+  StyleSheet,
+  TouchableOpacity,
+  View,
+  Text,
+  FlatList,
+} from "react-native";
 import React from "react";
 import { Avatar } from "react-native-paper";
 import { useNavigation } from "@react-navigation/native";
+import { RoutesProps } from "../../types/navigation.type";
 
-
-const opciones = [
+const opciones: {
+  id: number;
+  title: string;
+  image: any;
+  screen: string;
+  component: string;
+}[] = [
   {
     id: 1,
     title: "Perfil",
     image: require("../../../assets/Perfil.png"),
     screen: "Perfil",
-    component:'Perfil'
+    component: "Perfil",
   },
   {
     id: 2,
-    title: "Perfil",
+    title: "Membresia",
     image: require("../../../assets/Membresia.png"),
     screen: "Membresia",
-    component:'Membresia'
+    component: "Membresia",
   },
   {
     id: 3,
-    title: "Perfil",
+    title: "Puntuaje",
     image: require("../../../assets/Puntuaje.png"),
     screen: "Puntuaje",
-    component:'Puntuaje'
+    component: "Puntuaje",
   },
   {
     id: 4,
-    title: "Perfil",
+    title: "Ajustes",
     image: require("../../../assets/Ajustes.png"),
     screen: "Ajustes",
-    component:'Ajustes'
+    component: "Ajustes",
   },
 ];
 
 const HomeScreen = () => {
-  const navigation = useNavigation();
+  const navigation = useNavigation<RoutesProps>();
 
-  
   return (
     <View style={styles.container}>
       <View
         style={{
           justifyContent: "center",
           alignItems: "center",
-          marginBottom: 24,
+          marginTop: 100,
         }}
       >
         <Avatar.Image
@@ -55,15 +66,20 @@ const HomeScreen = () => {
         <Text style={styles.textStyle}>Bienvenido</Text>
       </View>
 
-      <View style={styles.gridContainer}>
-        {opciones.map((opcion) => (
-          <TouchableOpacity key={opcion.id} style={styles.circleButton} onPress={()=>navigation.navigate(opcion.component)}>
-            <Avatar.Image size={100} source={opcion.image} />
-            <Text style={styles.textStyle}>{opcion.screen}</Text>
-           
+      <FlatList
+        data={opciones}
+        keyExtractor={(item) => item.id.toString()}
+        renderItem={({ item }) => (
+          <TouchableOpacity
+            style={styles.circleButton}
+            onPress={() => navigation.navigate(item.screen)}
+          >
+            <Avatar.Image size={60} source={item.image} />
+            <Text style={styles.textStyle}>{item.title}</Text>
           </TouchableOpacity>
-        ))}
-      </View>
+        )}
+        numColumns={2}
+      />
     </View>
   );
 };
@@ -72,10 +88,8 @@ export default HomeScreen;
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
     justifyContent: "space-evenly",
     alignItems: "center",
-    padding: 28,
   },
   circleButton: {
     width: 100,
@@ -86,11 +100,7 @@ const styles = StyleSheet.create({
     marginVertical: 20,
   },
   gridContainer: {
-    flex: 1,
-    flexDirection: "row",
-    flexWrap: "wrap",
-    justifyContent: "center",
-    gap: 20,
+    marginTop: 32,
   },
   textStyle: {
     fontWeight: "bold",
