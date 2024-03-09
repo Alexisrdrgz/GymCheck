@@ -76,7 +76,7 @@ const CrearCuenta = () => {
         </View>
         <View style={styles.formButtons}>
           <Text style={{ fontWeight: "400", marginBottom: 5 }}>
-            Numero de socio
+            Correo electronico
           </Text>
           <TextInput
             label="Numero de socio"
