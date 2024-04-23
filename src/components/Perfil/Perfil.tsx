@@ -1,8 +1,32 @@
-import React from "react";
+import React,{useState,useEffect} from "react";
 import {View, Text, StyleSheet, Image} from 'react-native'
 import { Avatar } from "react-native-paper";
+import QRCode from "react-qr-code";
 
 const Perfil = () =>{
+
+  
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    // Esta función se ejecuta al montar el componente
+    incrementCounter();
+  }, []);
+
+
+  const incrementCounter = async () => {
+    try {
+      const response = await fetch('http://localhost:3000/increment');
+      if (!response.ok) {
+        throw new Error('Error al incrementar el contador');
+      }
+      const data = await response.json();
+      setCount(data.count);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
     return(
         <View style={styles.container}>
         <View style={styles.avatarContainer}>
@@ -25,10 +49,23 @@ const Perfil = () =>{
           <Text>
             num. de usuario: 00001
           </Text>
+          <Text>
+            puntos de usuario: {count}
+          </Text>
 
         </View>
         <View>
-            <Image source={require('../../../assets/qr.png')} style={styles.image}/>
+        <View style={{}}>
+
+        <QRCode
+      size={256}
+      style={{ height: "auto", maxWidth: "100%", width: "100%" }}
+      value={"http://localhost:3000/increment" }  //value to encode}
+      viewBox={`0 0 256 256`}
+    />
+
+
+        </View>
         </View>
         <View style={styles.design}>
 
