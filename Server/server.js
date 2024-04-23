@@ -1,7 +1,10 @@
-const express = require('express');
+import express, { Router } from "express";
 const firebase = require('firebase');
+import serverless from "serverless-http";
 
-const app = express();
+
+const api = express();
+const router = Router();
 const PORT = 3000;
 
 // Configura Firebase
@@ -29,7 +32,9 @@ counterRef.once('value', (snapshot) => {
     }
 });
 
-app.get('/increment', (req, res) => {
+
+
+router.get('/increment', (req, res) => {
     // Incrementa el contador en la base de datos
     counterRef.transaction((currentValue) => {
         return (currentValue || 0) + 1;
@@ -42,6 +47,10 @@ app.get('/increment', (req, res) => {
     });
 });
 
-app.listen(PORT, () => {
+api.listen(PORT, () => {
     console.log(`Servidor corriendo en el puerto ${PORT}`);
 });
+
+api.use("/api/", router);
+
+export const handler = serverless(api);
