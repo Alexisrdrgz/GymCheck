@@ -1,11 +1,40 @@
-import React from "react";
+import React,{useEffect,useState} from "react";
 import { View, Text, StyleSheet,Image } from 'react-native'
 import { IconButton, Avatar } from 'react-native-paper';
 import { useNavigation } from "@react-navigation/native";
+import { getFirestore, doc, getDoc } from "../../../firebase";
 
 
 const Puntuaje = () =>{
     const navigation = useNavigation();
+
+
+   
+        const [score, setScore] = useState(null);
+      
+        useEffect(() => {
+          // Función para obtener el puntaje del usuario
+          const getScore = async () => {
+            try {
+              // Reemplaza 'userId' con el ID del usuario actual
+              const userId = 'userId';
+              const db = getFirestore();
+              const scoreRef = doc(db, 'oMD5JqhNNJe7IMZrModx', userId);
+              const docSnap = await getDoc(scoreRef);
+      
+              if (docSnap.exists()) {
+                // Si el documento existe, establece el puntaje en el estado
+                setScore(docSnap.data().score);
+              } else {
+                console.log('No se encontró ningún puntaje para este usuario.');
+              }
+            } catch (error) {
+              console.error('Error al obtener el puntaje:', error);
+            }
+          };
+
+          getScore();
+        }, []);
 
     return(
         <View style={{backgroundColor:'white'}}>

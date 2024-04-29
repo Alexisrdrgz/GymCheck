@@ -43,6 +43,7 @@ router.get('/increment', (req, res) => {
             res.status(500).json({ error: 'Error al actualizar el contador' });
         } else {
             res.json({ count: snapshot.val() });
+            
         }
     });
 });

@@ -25,6 +25,7 @@ import {
   deleteDoc,
   onSnapshot,
   getDoc,
+  
 } from "firebase/firestore";
 
 import AsyncStorage from "@react-native-async-storage/async-storage";
@@ -34,13 +35,13 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: "AIzaSyDqj5hIimXAKCjU_WAmFoWtWvFDWGxXS5w",
-  authDomain: "gymcheck-59522.firebaseapp.com",
-  projectId: "gymcheck-59522",
-  storageBucket: "gymcheck-59522.appspot.com",
-  messagingSenderId: "57760860650",
-  appId: "1:57760860650:web:c042bb527b37d330f84a93",
-  measurementId: "G-Y0Y4MKBDW2"
+  apiKey: "AIzaSyCniiZ7mqVM7qO8VxU86JQ7DYlnaJnV10A",
+  authDomain: "gymcheck-c47e8.firebaseapp.com",
+  projectId: "gymcheck-c47e8",
+  storageBucket: "gymcheck-c47e8.appspot.com",
+  messagingSenderId: "106234338308",
+  appId: "1:106234338308:web:50b0bbdc4717e93ab8a951",
+  measurementId: "G-GDFPLE5SJ5"
 };
 
 // Initialize Firebase

@@ -10,6 +10,8 @@ import { Avatar } from "react-native-paper";
 import { useNavigation } from "@react-navigation/native";
 import { RoutesProps } from "../../types/navigation.type";
 
+
+
 const opciones: {
   id: number;
   title: string;

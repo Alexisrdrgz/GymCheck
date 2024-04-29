@@ -18,6 +18,7 @@ const CrearCuenta = () => {
     phone: "",
     email: "",
     fechaNacimiento: "",
+    puntuaje: 0,
   });
 
   const { loading, register, error } = useAuth();

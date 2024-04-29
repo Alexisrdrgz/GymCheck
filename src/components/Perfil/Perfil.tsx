@@ -2,31 +2,44 @@ import React,{useState,useEffect} from "react";
 import {View, Text, StyleSheet, Image} from 'react-native'
 import { Avatar } from "react-native-paper";
 import QRCode from "react-qr-code";
+import { getFirestore, doc, getDoc, auth, onAuthStateChanged,db } from "../../../firebase";
 
 const Perfil = () =>{
-
-  
-  const [count, setCount] = useState(0);
+  const [score, setScore] = useState();
+  const [userId, setUserId] = useState(null);
 
   useEffect(() => {
-    // Esta función se ejecuta al montar el componente
-    incrementCounter();
-  }, []);
+    const getScore = async (userId) => {
+      try {
+        const scoreRef = doc(db, "users", userId);
+        console.log(scoreRef);
+        const docSnap = await getDoc(scoreRef);
+        console.log(docSnap);
 
-
-  const incrementCounter = async () => {
-    try {
-      const response = await fetch('http://localhost:3000/increment');
-      if (!response.ok) {
-        throw new Error('Error al incrementar el contador');
+        if (docSnap.exists()) {
+          setScore(docSnap.data().puntuaje);
+        } else {
+          console.log("No se encontró ningún puntaje para este usuario.", userId);
+        }
+      } catch (error) {
+        console.error("Error al obtener el puntaje:", error);
       }
-      const data = await response.json();
-      setCount(data.count);
-    } catch (error) {
-      console.error(error);
-    }
-  };
+    };
 
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      if (user) {
+        // Si hay un usuario autenticado, establece su ID en el estado
+        setUserId(user.uid);
+        // Llama a la función para obtener el puntaje usando el ID del usuario
+        getScore(user.uid);
+      } else {
+        console.log("No hay usuario autenticado.");
+      }
+    });
+
+    return () => unsubscribe();
+  }, []);
+  
     return(
         <View style={styles.container}>
         <View style={styles.avatarContainer}>
@@ -50,7 +63,7 @@ const Perfil = () =>{
             num. de usuario: 00001
           </Text>
           <Text>
-            puntos de usuario: {count}
+            puntos de usuario: {score}
           </Text>
 
         </View>

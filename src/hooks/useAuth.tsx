@@ -54,5 +54,7 @@ export const useAuth = () => {
       });
   };
 
+  
+
   return { Login, error, loading, register };
 };

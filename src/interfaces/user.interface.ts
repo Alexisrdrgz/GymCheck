@@ -7,4 +7,5 @@ export interface User {
   phone: string;
   email: string;
   fechaNacimiento: string;
+  puntuaje: number;
 }
