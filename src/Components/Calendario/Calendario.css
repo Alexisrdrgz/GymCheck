@@ -1,0 +1,18 @@
+.custom-calendar .react-calendar__tile {
+    background-color: #F3DFFF; /* Fondo morado para el calendario */
+    color: black; /* Color de texto blanco */
+    
+  }
+  
+  .custom-tile-selected-start {
+    background-color: green !important; /* Color de fondo para la fecha de inicio */
+  }
+  
+  .custom-tile-selected-end {
+    background-color: red !important; /* Color de fondo para la fecha final */
+  }
+  
+  .custom-tile-selected-range {
+    background-color: #ce93d8 !important; /* Color de fondo para el rango de fechas */
+  }
+  

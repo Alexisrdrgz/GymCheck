@@ -1,0 +1,28 @@
+.container {
+   
+  }
+  
+  .logo-container {
+    display: flex;
+    align-items: center;
+  }
+  
+  .logo {
+    width: 200px;
+    height: 200px;
+  }
+  
+  .labels-container {
+    margin-left: 20px; /* Ajusta el espacio entre la imagen y las etiquetas */
+  }
+  
+  .circle {
+    width: 100px;
+    height: 100px;
+    background-color: #E4C7FF;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
