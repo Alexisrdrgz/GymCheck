@@ -10,7 +10,7 @@ const Actualizaciones = () => {
                   <button
                     type="button"
                     className=""
-                    onClick={() => {window.location.href = '/menu'}}
+                    onClick={() => {window.location.href = '/ajustes'}}
                   >
                       <CloseIcon style={{fontSize: 30, marginTop:'5px',marginLeft:'5px'}} />
                   </button>

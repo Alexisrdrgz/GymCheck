@@ -31,7 +31,7 @@ const Membresia = () => {
                         <button
                           type="button"
                           className=""
-                          onClick={() => {window.location.href = '/configuracion'}}
+                          onClick={() => {window.location.href = '/ajustes'}}
                         >
                             <SettingsIcon style={{fontSize: 30, marginTop:'5px',marginLeft:'5px'}} />
                         </button>

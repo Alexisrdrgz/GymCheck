@@ -3,7 +3,7 @@ import { Route, Routes } from "react-router-dom";
 
 const LoginPage = lazy(() => import("../../src/App"));
 const Registro2 = lazy(() => import("../Components/Registro/Registro2"));
-const Registro = lazy(() => import("../Components/Registro/Registro"));
+const RegistroContainer = lazy(() => import("../Components/Registro/RegistroContainer"));
 const Menu = lazy(() => import("../Components/menu/menu"));
 const Perfil = lazy(() => import("../Components/Perfil/Perfil"));
 const Calendario = lazy(() => import("../Components/Calendario/Calendario"));
@@ -17,7 +17,7 @@ export const AppRouter = () => {
     return (
         <Routes>
             <Route path="/" element={<LoginPage />} />
-            <Route path="/registro" element={<Registro />} />
+            <Route path="/registro" element={<RegistroContainer />} />
             <Route path="/registro2" element={<Registro2 />} />
             <Route path="/menu" element={<Menu />} />
             <Route path="/perfil" element={<Perfil />} />

@@ -70,7 +70,7 @@ const EditarPerfil = () => {
               </div>
             </div>
             <div style={{marginTop:'42px', marginLeft:'20px'}}>
-              <a href='/ajustes' >Home</a>
+              <a href='/ajustes' >Atras</a>
               <TERipple rippleColor="light" className="w-full rounded-full items-center justify-evenly -mt-32">
                 <button
                   type="button"
