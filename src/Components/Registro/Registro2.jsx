@@ -65,7 +65,8 @@ const Registro2 = () => {
                       type="button"
                       className="inline-block w-full rounded bg-purple-700 text-white py-3 px-4 text-center font-semibold text-lg transition duration-150 ease-in-out hover:bg-purple-800 focus:bg-purple-800 active:bg-purple-900 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:bg-primary-700 dark:active:bg-primary-800"
                     >
-                      Siguiente
+                      
+                      Registrar
                     </button>
                   </TERipple>
     
@@ -73,6 +74,8 @@ const Registro2 = () => {
                 </form>
               </div>
             </div>
+            <div style={{marginTop:'42px', marginLeft:'20px'}}>
+        <a href='/registro' >Regresar</a> </div>
           </div>
         </section>
       );

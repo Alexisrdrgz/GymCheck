@@ -1,7 +1,7 @@
 import React from "react";
 import IconButton from "@mui/material/IconButton";
 import Avatar from "@mui/material/Avatar";
-import Ajuste from "./ajuste";
+import Ajuste from "./Ajuste";
 import { Ajust } from "./data";
 import CloseIcon from '@mui/icons-material/Close';
 import { TEInput, TERipple } from "tw-elements-react";
@@ -25,18 +25,8 @@ const Ajustes = () => {
                         </button>
                       </TERipple>
           </div>
-          <span style={styles.textos}>Membresia</span>
-          <div style={styles.circle2}>
-          <TERipple rippleColor="light" >
-                        <button
-                          type="button"
-                          className=""
-                          onClick={() => {window.location.href = '/configuracion'}}
-                        >
-                            <SettingsIcon style={{fontSize: 30, marginTop:'5px',marginLeft:'5px'}} />
-                        </button>
-                      </TERipple>
-          </div>
+          <span style={styles.textos}>Ajustes</span>
+         
         </div>
       </div>
       <div style={styles.avatarContainer}>
@@ -46,7 +36,7 @@ const Ajustes = () => {
         </span>
         <div style={styles.PagosContenedor}>
           <div style={styles.Pagos}>
-            {Ajuste.map((service) => (
+            {Ajust.map((service) => (
               <Ajuste
                 key={service.title}
                 title={service.title}
@@ -100,11 +90,14 @@ const styles = {
     flexDirection: "column",
   },
   Pagos: {
-    marginLeft: -50,
+    
   },
   PagosContenedor: {
+    display: "flex",
+    flexDirection: "row",
+    alignItems: "center",
     marginTop: 20,
-    marginLeft: -30,
-    paddingEnd: 30,
+    marginLeft: -50,
   },
+  
 };

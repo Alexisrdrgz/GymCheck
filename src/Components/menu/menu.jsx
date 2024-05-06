@@ -40,7 +40,7 @@ const menu = () => {
                         <button
                           type="button"
                           className="rounded-full bg-primary"
-                          onClick={() => {window.location.href = '/membresia'}}
+                          onClick={() => {window.location.href = '/pagos'}}
                         >
                             <img src={Membresia} alt="" />
                         </button>

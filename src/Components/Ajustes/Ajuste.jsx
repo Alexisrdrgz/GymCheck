@@ -1,37 +1,49 @@
 import React from "react";
 import IconButton from "@mui/material/IconButton";
-import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
-import { TEInput, TERipple } from "tw-elements-react";
-import AccessAlarmIcon from '@mui/icons-material/AccessAlarm';
+import { TERipple } from "tw-elements-react";
+import PersonIcon from '@mui/icons-material/Person';
+import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 
-const Ajuste = ({ title, icon, icon2 }) => {
+const Ajuste = ({ title }) => {
+
+  const Seleccion = () => {
+    if (title === "Editar Perfil") {
+      console.log("Editar Perfil");
+      window.location.href = '/editarperfil';
+    }
+    if (title === "Actualizaciones") {
+      window.location.href = '/actualizaciones';
+    }
+    if (title === "Cerrar Sesion") {
+      window.location.href = '/';
+    }
+  };
 
   return (
     <div style={styles.container}>
-      <div style={styles.iconContainer}>
-      <TERipple rippleColor="light" >
-                        <button
-                          type="button"
-                          className="rounded-full bg-purple-300 w-10 h-10 border-2 border-gray ml-28 mt-3"
-                         
-                        >
-                            <AccessAlarmIcon />
-                        </button>
-                      </TERipple>
+      <div style={styles.backgroundCircle}>
+        <TERipple rippleColor="light">
+          <button
+            type="button"
+            className="rounded-full bg-purple-300 w-10 h-10 border-2 border-gray"
+          >
+            <PersonIcon />
+          </button>
+        </TERipple>
       </div>
       <div style={styles.contentContainer}>
         <p style={styles.title}>{title}</p>
       </div>
-      <div style={styles.backgroundCircle}>
-      <TERipple rippleColor="light" style={styles.icon1} className="ml-4 mt-4">
-                        <button
-                          type="button"
-                          className=""
-                          onClick={() => {window.location.href = '/calendario'}}
-                        >
-                            <CalendarMonthIcon />
-                        </button>
-                      </TERipple>
+      <div>
+        <TERipple rippleColor="light" style={styles.icon1} className="ml-4 mt-4">
+          <button
+            type="button"
+            className=""
+            onClick={Seleccion}
+          >
+            <ChevronRightIcon />
+          </button>
+        </TERipple>
       </div>
     </div>
   );
@@ -48,14 +60,7 @@ const styles = {
     marginBottom: 20,
     justifyContent: "space-between",
     alignItems: "flex-start",
-    marginLeft:"-18px"
-  },
-  iconContainer: {
-    display: "flex",
-    flexDirection: "row",
-    justifyContent: "flex-start",
-    alignItems: "flex-start",
-    marginLeft: -95,
+    marginLeft: "-18px"
   },
   contentContainer: {},
   title: {
@@ -64,34 +69,19 @@ const styles = {
     marginLeft: 50,
   },
   backgroundCircle: {
-    width: 50,
-    height: 50,
+    width: 40,
+    height: 40,
     borderRadius: 50,
     position: "relative",
-    left: -5,
-    top: 6,
+    left: 5,
     borderWidth: 2,
     borderColor: "#FFF",
     backgroundColor: "#F3DFFF",
-    
   },
   icon1: {
     position: "relative",
     left: -6,
     top: -6,
-  },
-  fechas: {
-    paddingLeft: 50,
-    fontSize: 15,
-    color: "gray",
-  }, circle2: {
-    width: 45,
-    height: 45,
-    borderColor: "lightgrey",
-    borderWidth: 1,
-    borderRadius: 50,
-    marginLeft: 100, // Espacio entre el botón y el círculo
-    justifyContent: "center",
   },
 };
 

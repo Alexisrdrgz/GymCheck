@@ -60,7 +60,7 @@ const Puntuaje = () => {
       </div>
 
       <div style={{marginTop:'42px', marginLeft:'20px'}}>
-        <a href='/' >Home</a>
+        <a href='/menu' >Home</a>
         <TERipple rippleColor="light" className="w-full rounded-full items-center justify-evenly -mt-32">
                         <button
                           type="button"

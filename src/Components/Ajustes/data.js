@@ -1,16 +1,16 @@
 const Ajust = [
     {
-      title: "Fecha de pago",
+      title: "Editar Perfil",
+      icon: `PersonIcon`,
+      icon2: `calendar-month`,
+    },
+    {
+      title: "Actualizaciones",
       icon: `clock`,
       icon2: `calendar-month`,
     },
     {
-      title: "Fecha de Vencimiento",
-      icon: `clock`,
-      icon2: `calendar-month`,
-    },
-    {
-      title: "Fecha de pago",
+      title: "Cerrar Sesion",
       icon: `clock`,
       icon2: `calendar-month`,
     },

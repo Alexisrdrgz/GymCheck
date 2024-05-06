@@ -10,6 +10,8 @@ const Calendario = lazy(() => import("../Components/Calendario/Calendario"));
 const Puntuaje = lazy(() => import("../Components/Puntuaje/Puntuaje"));
 const Pagos = lazy(() => import("../Components/Membresia/Membresia"));
 const Ajustes = lazy(() => import("../Components/Ajustes/Ajustes"));
+const EditarPerfil = lazy(() => import("../Components/Actualizar/EditarPerfil"));
+const Actualizaciones = lazy(() => import("../Components/Actualizaciones/Actualizaciones"));
 export const AppRouter = () => {
 
     return (
@@ -23,6 +25,8 @@ export const AppRouter = () => {
             <Route path="/puntuaje" element={<Puntuaje />} />
             <Route path="/pagos" element={<Pagos />} />
             <Route path="/ajustes" element={<Ajustes />} />
+            <Route path="/editarperfil" element={<EditarPerfil />} />
+            <Route path="/actualizaciones" element={<Actualizaciones />} />
 
         </Routes>
     )
