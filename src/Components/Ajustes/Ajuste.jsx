@@ -1,21 +1,24 @@
 import React from "react";
 import IconButton from "@mui/material/IconButton";
 import { TERipple } from "tw-elements-react";
-import PersonIcon from '@mui/icons-material/Person';
-import ChevronRightIcon from '@mui/icons-material/ChevronRight';
+import PersonIcon from "@mui/icons-material/Person";
+import ChevronRightIcon from "@mui/icons-material/ChevronRight";
+import { auth } from "../../firebase.ts";
 
 const Ajuste = ({ title }) => {
-
   const Seleccion = () => {
     if (title === "Editar Perfil") {
       console.log("Editar Perfil");
-      window.location.href = '/editarperfil';
+      window.location.href = "/editarperfil";
     }
     if (title === "Actualizaciones") {
-      window.location.href = '/actualizaciones';
+      window.location.href = "/actualizaciones";
     }
     if (title === "Cerrar Sesion") {
-      window.location.href = '/';
+      auth.signOut().then(() => {
+        localStorage.setItem("user", "false");
+        window.location.href = "/login";
+      });
     }
   };
 
@@ -35,12 +38,12 @@ const Ajuste = ({ title }) => {
         <p style={styles.title}>{title}</p>
       </div>
       <div>
-        <TERipple rippleColor="light" style={styles.icon1} className="ml-4 mt-4">
-          <button
-            type="button"
-            className=""
-            onClick={Seleccion}
-          >
+        <TERipple
+          rippleColor="light"
+          style={styles.icon1}
+          className="ml-4 mt-4"
+        >
+          <button type="button" className="" onClick={Seleccion}>
             <ChevronRightIcon />
           </button>
         </TERipple>
@@ -60,7 +63,7 @@ const styles = {
     marginBottom: 20,
     justifyContent: "space-between",
     alignItems: "flex-start",
-    marginLeft: "-18px"
+    marginLeft: "-18px",
   },
   contentContainer: {},
   title: {

@@ -3,34 +3,37 @@ import IconButton from "@mui/material/IconButton";
 import Avatar from "@mui/material/Avatar";
 import Ajuste from "./Ajuste";
 import { Ajust } from "./data";
-import CloseIcon from '@mui/icons-material/Close';
+import CloseIcon from "@mui/icons-material/Close";
 import { TEInput, TERipple } from "tw-elements-react";
-import SettingsIcon from '@mui/icons-material/Settings';
-import Logo from '../../assets/GymCheck_Logo__1_-removebg-preview 1.png';
+import SettingsIcon from "@mui/icons-material/Settings";
+import Logo from "../../assets/GymCheck_Logo__1_-removebg-preview 1.png";
+import { auth } from "../../firebase.ts";
 
 const Ajustes = () => {
-
   return (
     <div>
       <div>
         <div style={styles.Contenedor1}>
           <div style={styles.circle}>
-          <TERipple rippleColor="light" >
-                        <button
-                          type="button"
-                          className=""
-                          onClick={() => {window.location.href = '/menu'}}
-                        >
-                            <CloseIcon style={{fontSize: 30, marginTop:'5px',marginLeft:'5px'}} />
-                        </button>
-                      </TERipple>
+            <TERipple rippleColor="light">
+              <button
+                type="button"
+                className=""
+                onClick={() => {
+                  window.location.href = "/menu";
+                }}
+              >
+                <CloseIcon
+                  style={{ fontSize: 30, marginTop: "5px", marginLeft: "5px" }}
+                />
+              </button>
+            </TERipple>
           </div>
           <span style={styles.textos}>Ajustes</span>
-         
         </div>
       </div>
       <div style={styles.avatarContainer}>
-        <img src={Logo} alt="" style={{marginLeft:'-32px'}}/>
+        <img src={Logo} alt="" style={{ marginLeft: "-32px" }} />
         <span style={{ color: "black", marginLeft: 23, fontWeight: "bold" }}>
           Alexis Rodriguez
         </span>
@@ -89,9 +92,7 @@ const styles = {
     marginLeft: 100,
     flexDirection: "column",
   },
-  Pagos: {
-    
-  },
+  Pagos: {},
   PagosContenedor: {
     display: "flex",
     flexDirection: "row",
@@ -99,5 +100,4 @@ const styles = {
     marginTop: 20,
     marginLeft: -50,
   },
-  
 };
