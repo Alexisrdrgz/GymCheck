@@ -16,17 +16,17 @@ export const AppRouter = () => {
 
     return (
         <Routes>
-            <Route path="/" Component={<LoginPage />} />
-            <Route path="/registro" Component={<Registro />} />
-            <Route path="/registro2" Component={<Registro2 />} />
-            <Route path="/menu/:email" Component={<Menu />} />
-            <Route path="/perfil" Component={<Perfil />} />
-            <Route path="/calendario" Component={<Calendario />} />
-            <Route path="/puntuaje" Component={<Puntuaje />} />
-            <Route path="/pagos" Component={<Pagos />} />
-            <Route path="/ajustes" Component={<Ajustes />} />
-            <Route path="/editarperfil" Component={<EditarPerfil />} />
-            <Route path="/actualizaciones" Component={<Actualizaciones />} />
+            <Route path="/" element={<LoginPage />} />
+            <Route path="/registro" element={<Registro />} />
+            <Route path="/registro2" element={<Registro2 />} />
+            <Route path="/menu/:email" element={<Menu />} />
+            <Route path="/perfil" element={<Perfil />} />
+            <Route path="/calendario" element={<Calendario />} />
+            <Route path="/puntuaje" element={<Puntuaje />} />
+            <Route path="/pagos" element={<Pagos />} />
+            <Route path="/ajustes" element={<Ajustes />} />
+            <Route path="/editarperfil" element={<EditarPerfil />} />
+            <Route path="/actualizaciones" element={<Actualizaciones />} />
 
         </Routes>
     )
