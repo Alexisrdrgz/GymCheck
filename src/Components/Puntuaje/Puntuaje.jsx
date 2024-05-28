@@ -14,7 +14,7 @@ const Puntuaje = () => {
 
   useEffect(() => {
     fetchUsers();
-  }, []);
+  }, [users]);
 
   if (!users) return null;
 

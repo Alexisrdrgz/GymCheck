@@ -7,9 +7,9 @@ const Perfil = () => {
 
   useEffect(() => {
     fetchUsers();
-  }, []);
+  }, [users]);
 
-  if (!users) return null;
+  if (!users) return <div>Loading...</div>;
 
   return (
     <div>
